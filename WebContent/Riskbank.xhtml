@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+ 	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resource/css/bootstrap.css"/>
+<link rel="stylesheet" href="resource/mystyle/home.css"/>
+<link rel="stylesheet" href="resource/mystyle/createcategory.css"/>
+<link rel="stylesheet" href="resource/css/risk.css"/>
+  <link rel="stylesheet" href="resource/mystyle/button.css"/>
+<script type="text/javascript" src="resource/js/bootstrap.js"/>
+<script type="text/javascript" src="resource/js/jquery.js"/>
+
+
+<title>Risk Bank-Definition</title>
+
+</h:head>
+
+<h:body> 
+<div id="Riskbank">
+ <ui:insert name="header">
+		<ui:include src="header.xhtml" />
+	</ui:insert></div>
+   
+   
+   
+   
+
+   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+     <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+     <span class="icon-bar"></span></button>
+     
+       <div class="ui-fluid" >
+     <center><h2 style="color:purple" >Risk Bank-Definition</h2></center>
+     <div class="container" >
+      <h:form class="form-horizontal" enctype="multipart/form-data">
+      <br></br> 
+
+      
+     
+    <div class="form-group row">
+      <div class="control-label col-sm-3" >
+      <h:outputLabel><span style="color:red; width:100px">* </span> Risk Title:</h:outputLabel>
+ <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Risk is anything that can impact the objectives. Please enter a brief title." 
+></span></div>
+
+      <div class="col-sm-8">
+     <h:inputText value="#{bank1bean.risktitle}" class="form-control"  > </h:inputText>
+    
+     
+     
+     
+     </div>
+      </div>
+   
+    <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="Description"   value=" Risk Description:&nbsp;" ><span   data-toggle="tooltip" title="Please describe the Description in more details." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.riskdescription}" class="form-control" style="background:lightgrey;"></h:inputTextarea></div></div>
+      
+
+
+<div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Source:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="source" 
+></span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  value="#{bank1bean.source}"  style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Bank" itemValue="Bank" />
+             <f:selectItem itemLabel="Risk" itemValue="Risk" />
+             <f:selectItem itemLabel="Org" itemValue="Org" />
+            </p:selectOneMenu>
+
+</div>
+
+
+
+
+<div class="col-sm-2 control-label">
+<h:outputLabel>Industry:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Industry" 
+></span>
+</div>
+ <div class=" col-sm-2">
+ 
+<p:selectOneMenu value="#{bank1bean.industry}"  style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Delhi" itemValue="Delhi" />
+              <f:selectItem itemLabel="Mumbai" itemValue="Mumbai" />
+               <f:selectItem itemLabel="Gurgoan" itemValue="Gurgoan" />
+         
+        </p:selectOneMenu>
+
+</div></div>
+
+
+<div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Function:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Function" 
+></span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  value="#{bank1bean.function}"  style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Finance" itemValue="Finance" />
+              <f:selectItem itemLabel="HR" itemValue="HR" />  
+             <f:selectItem itemLabel="Sales and Marketing" itemValue="Sale and Marketing" />
+            <f:selectItem itemLabel="Production" itemValue="Production" />
+             <f:selectItem itemLabel="Maintenance" itemValue="Maintenance" />
+             <f:selectItem itemLabel="Security" itemValue="Security" />
+             <f:selectItem itemLabel="Audit" itemValue="Audit" />
+             <f:selectItem itemLabel="Supply Chain" itemValue="Supply Chain" />
+            
+           
+          
+        </p:selectOneMenu>
+
+</div>
+<div class="col-sm-2 control-label">
+<h:outputLabel>Section:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Section" 
+></span>
+</div>
+ <div class=" col-sm-3">
+ 
+<p:selectOneMenu  value="#{bank1bean.section}" style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+            <f:selectItem itemLabel="Chesses" itemValue="Chesses" />
+            <f:selectItem itemLabel="Cricket" itemValue="Cricket" />
+            <f:selectItem itemLabel="TT-Table" itemValue="TT-Table" />
+           
+        </p:selectOneMenu>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="background"   value="Background:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Background , If Any." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.background}" class="form-control" ></h:inputTextarea></div></div>
+      
+       <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="remarks"   value="Remarks:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Remarks , If Any." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.remarks}" class="form-control" ></h:inputTextarea></div></div>
+      
+
+
+       <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="notes"   value="Notes:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Notes , If Any." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.notes}" class="form-control" ></h:inputTextarea></div></div>
+      
+     
+      
+  
+
+
+
+
+<div class=" row form-group ">
+ <div class="col-sm-3 .col-sm-offset-3"></div>
+<div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Submit" style="text-decoration:none; color:#fff;" class="btn fontsize btn-success btn-block"></h:commandButton></div>
+<div class="col-sm-4"></div>
+<div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Back" style="text-decoration:none; color:#fff;" class="btn fontsize btn-primary btn-block"></h:commandButton></div>
+<div class="col-sm-4"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+      
+
+</h:form>
+
+
+
+</div></div>
+
+
+
+
+
+<h:form id="projectForm">
+<p:growl id="messages" showDetail="true"  autoUpdate="true"/>
+
+      <div  class="gridmargin">
+ 		
+<div class="ui-fluid">
+
+	     <p:dataTable id="risktable" var="Bank1bean" value="#{bank1bean.bankList}" 
+	    scrollable="true" scrollHeight="250"
+	      class="table table-striped table-hover table-bordered" style="margin-top:20px" 
+	         rows="25" rowsPerPageTemplate="25,35,50" 	
+	     
+	    
+	     >
+	
+  <f:facet name="header">
+	    <div class="row" style="margin: -3px;">
+	 
+				
+      		<span style="font-size:22px;text-align:center;">Manage Risk Bank-Definition</span>
+      	  
+					<div  style="margin-right: -10px">
+			
+			<h:commandLink id="excel">
+	     <img  src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
+	        <p:dataExporter type="xls" target="risktable" fileName="Bank1bean" postProcessor="#{bank1bean.postProcessXLS}" />
+	    </h:commandLink>
+			
+			 <h:commandLink id="pdf" >
+	     <img  src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
+	        <p:dataExporter type="pdf" target="risktable" fileName="Bank1bean"  preProcessor="#{bank1bean.preProcessPDF}"  />
+	    </h:commandLink>	
+			</div>	
+		
+			
+			</div>
+			
+		</f:facet> 
+  
+			 
+	  <p:column headerText=" Risk Title"  filterBy="#{Bank1bean.risktitle}" sortBy="#{Bank1bean.risktitle}" filterMatchMode="contains">
+	        <f:facet name="header">
+					<h:outputText value="Risk Title" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.risktitle}" />
+	        </p:column>
+	         
+	          <p:column headerText="Risk Description" >
+	        <f:facet name="header">
+					<h:outputText value="Risk Description" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.riskdescription}" />
+	        </p:column>
+	         
+	        
+	        
+	         <p:column headerText="Background"  filterBy="#{Bank1bean.background}" sortBy="#{Bank1bean.background}" filterMatchMode="contains">
+	        <f:facet name="header">
+					<h:outputText value="Background" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.background}" />
+	        </p:column>
+	         <p:column headerText="Remarks" >
+	        <f:facet name="header">
+					<h:outputText value="Remarks" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.remarks}" />
+	        </p:column>
+	         <p:column headerText="Notes">
+	        <f:facet name="header">
+					<h:outputText value="Notes" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.notes}" />
+	        </p:column>
+	        <p:column headerText="Function"  filterBy="#{Bank1bean.function}" sortBy="#{Bank1bean.function}" filterMatchMode="contains" >
+	        <f:facet name="header">
+					<h:outputText value="Function" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.function}" />
+	        </p:column>
+	         
+	         
+	         
+	         
+	         
+	       
+	         
+	          <p:column headerText="Source"  filterBy="#{Bank1bean.source}" sortBy="#{Bank1bean.source}" filterMatchMode="contains">
+	        <f:facet name="header">
+					<h:outputText value="Source" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.source}" />
+	        </p:column>
+	         
+	           
+			<p:column filterBy="#{Bank1bean.industry}" sortBy="#{Bank1bean.industry}" headerText="Industry"  
+			 filterMatchMode="contains"   style="padding: 0px 0px 0px 3px;">
+	        <f:facet name="header">
+					<h:outputText value="Industry" /> 
+					</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.industry}" style="display: inline;"   />
+	        </p:column>
+	   
+	          <p:column headerText="Section">
+	        <f:facet name="header">
+					<h:outputText value="Section" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.section}" />
+	        </p:column>
+	         
+	          <p:column headerText="Status">
+	        <f:facet name="header">
+					<h:outputText value="Status" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.status}" />
+	        </p:column>
+	         
+	        
+	        
+
+</p:dataTable></div>
+
+</div></h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</h:body>
+</html>
+
+
+
+
+

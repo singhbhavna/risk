@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	   xmlns:ui="http://java.sun.com/jsf/facelets"
+	    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="resource/css/bootstrap.css"/>
+<link rel="stylesheet" href="resource/mystyle/home.css"/>
+<link rel="stylesheet" href="resource/mystyle/friendmaster.css"/>
+<link rel="stylesheet" href="resource/mystyle/createcategory.css"/>
+ <link rel="stylesheet" href="resource/mystyle/button.css"/>
+<script type="text/javascript" src="resource/js/bootstrap.js"/>
+<script type="text/javascript" src="resource/js/jquery.js"/>
+<title> Risk</title>
+ <style type="text/css">
+        .ui-growl {
+            
+            top:60px;
+            Right:20px;
+            width:500px;
+            z-index:9999;
+        }
+        .textbox {
+
+height: 500px !important;
+
+width: 700px !important;
+
+font-size: 14px !important;
+
+
+}
+    </style>
+    
+    </h:head>
+<body>  <div id="header">
+	<ui:insert name="header">
+		<ui:include src="header.xhtml" />
+	</ui:insert>
+	
+</div>
+
+ <div class="row">
+  
+  
+      <div class="col-sm-7  addteammember" >
+
+  <h:form class="form-horizontal">
+<h2 style="  margin-bottom:10px; margin-top:0px; text-align:center" > Create Sub Category</h2>
+<div class="textbox">
+
+ <div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Org ID:</h:outputLabel></div>
+<div class=" col-sm-4"> <h:inputText  maxlength="20" class="  form-control"  id="orgid"  style="background-color:lightgrey;" required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Category ID:</h:outputLabel></div>
+<div class=" col-sm-4"> <h:inputText  maxlength="20" class="  form-control"  id="CategoryID"  style="background-color:lightgrey;" required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Sub Category ID:</h:outputLabel></div>
+<div class=" col-sm-4"> <h:inputText  maxlength="20" class="  form-control"  id="subCategoryID"  style="background-color:lightgrey;" required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Sub Category Name:</h:outputLabel></div>
+<div class=" col-sm-6"> <h:inputText  maxlength="20" class="  form-control"  id="subCategoryName"  required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Sub Category Description:</h:outputLabel></div>
+<div class=" col-sm-6"> <h:inputTextarea  maxlength="20" class="  form-control"  id="subCategoryDescription"  required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Sub Category Owner ID:</h:outputLabel></div>
+<div class=" col-sm-6"> <h:inputText  maxlength="20" class="  form-control"  id="subCategoryOwnerid"  required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Sub Category Owner Name:</h:outputLabel></div>
+<div class=" col-sm-6"> <h:inputText  maxlength="20" class="  form-control"  id="subCategoryOwnername"  required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+<div class="col-sm-4 control-label"><h:outputLabel  >Sub Category Owner Email ID:</h:outputLabel></div>
+<div class=" col-sm-6"> <h:inputText  maxlength="20" class="  form-control"  id="subCategoryOwnerEmailID" style="background-color:lightgrey;"  required="true" requiredMessage="* Please Enter Project Name"/></div>
+</div>
+<div class=" row form-group ">
+ <div class=" row form-group ">
+ <div class="col-sm-4 .col-sm-offset-4"></div>
+<div class="col-sm-2"><h:commandLink action="#{createrequest.save()}" value="Save" style="text-decoration:none; color:#fff;" class="btn fontsize btn-success btn-block"></h:commandLink></div>
+<div class="col-sm-2"><h:link value="Back " style="text-decoration:none; color:#fff;" outcome="subcategory"  class="btn fontsize btn-primary btn-block"/></div>
+
+</div>
+</div></div>
+</h:form></div>
+<div class="col-sm-5" style="background-color:#fff;margin-top:0px; ">
+      
+ 
+    <div>
+<img  src="https://i.ytimg.com/vi/jaRANdL5qrE/maxresdefault.jpg" class="img-responsive img-thumbnail" alt="collabor8" style="width:100%;height:500px;" ></img>
+
+</div>
+      
+        </div>
+</div>
+ 
+</body> 
+</html>

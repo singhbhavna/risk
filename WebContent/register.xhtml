@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Register page</title>
+</h:head>
+<body>
+	please register
+	<br></br>
+	<br></br>
+
+
+	<h:messages style="color:red;margin:8px;" />
+	<h:form>
+		<h:outputLabel value="Name" />
+		<h:inputText value="#{register.name}" required="true"
+			requiredMessage="* Please enter your name"></h:inputText>
+		<br></br>
+		<br></br>
+		<h:outputLabel value="Address" />
+
+		<h:inputText value="#{register.address}"></h:inputText>
+		<br></br>
+		<br></br>
+
+		<h:outputLabel value="Phone No." />
+		<h:inputText value="#{register.phone}"></h:inputText>
+		<br></br>
+		<br></br>
+		<h:commandButton action="#{register.submit()}" value="save"></h:commandButton>
+		<br></br>
+		<br></br>
+	</h:form>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resource/css/bootstrap.css"/>
+<link rel="stylesheet" href="resource/mystyle/home.css"/>
+<link rel="stylesheet" href="resource/mystyle/createcategory.css"/>
+  <link rel="stylesheet" href="resource/mystyle/button.css"/>
+<script type="text/javascript" src="resource/js/bootstrap.js"/>
+<script type="text/javascript" src="resource/js/jquery.js"/>
+
+	<title> New</title>
+</h:head>
+<style>
+body {
+  font-family: Arial;
+  font-size: 12px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  background-color:#8ff274;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color:#008000;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  width: 80%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color:#008000;
+}
+
+a {
+  color: #008000;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 400px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+</style>
+
+<h:body>
+	
+   <div class="container-fluid" style="background-color:green "><h4>People Master</h4>
+
+
+    <div class="navbar-header">
+  
+           
+     
+         <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+                </button>
+                
+  </div>
+</div> 
+
+ <div class="container">  
+  <h:form enctype="multipart/form-data" class="form-horizontal">
+   <h2 style=" text-align: center;"> People Master </h2><br></br><br></br>
+     <div class="row">
+  <div class="column" style="background-color:#8ff274;">
+    <div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Org Id :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="OrgId" cols="19" rows="3" class="  form-control" style="background-color:lightgrey;"/>
+ <h:message for="OrgId"  style="color:red;"/>
+</div>
+</div>
+
+
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>People ID:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="PeopleID" cols="19" rows="3" class="  form-control" />
+ <h:message for="PeopleID"  style="color:red;"/>
+</div>
+</div>
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Salutation :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Salutation" cols="19" rows="3" class="  form-control" />
+ <h:message for="Salutation"  style="color:red;"/>
+</div>
+</div>
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>First Name:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="FirstName" cols="19" rows="3" class="  form-control" />
+ <h:message for="FirstName"  style="color:red;"/>
+</div>
+</div>
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Last Name:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="lastName" cols="19" rows="3" class="  form-control" />
+ <h:message for="lastName"  style="color:red;"/>
+</div>
+</div>
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Line Manager Id:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="LineManagerId" cols="19" rows="3" class="  form-control" />
+ <h:message for="LineManagerId"  style="color:red;"/>
+</div>
+</div>
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Line Manager Emailid:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="LineManagerEmailid" cols="19" rows="3" class="  form-control" validatorMessage="Invalid email format">
+
+<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+</h:inputText>
+ <h:message for="LineManagerEmailid"  style="color:red;"/>
+</div>
+</div>
+<div class="row">
+        <div class="col-md-offset-4 col-md-5">
+ <input type="submit" value="Save" class="btn fontsize btn-primary btn-block"></input>
+
+  </div>
+ 
+  </div>
+  </div>
+  <div class="column" style="background-color:#8ff274;">
+   <div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Employee Email Id:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="EmployeeEmaiId" cols="19" rows="3" class="  form-control" validatorMessage="Invalid email format">
+
+<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+</h:inputText>
+ <h:message for="EmployeeEmailId"  style="color:red;"/>
+</div>
+</div>
+
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Email Id:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="EmailId" cols="19" rows="3" class="  form-control" validatorMessage="Invalid email format">
+
+<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+</h:inputText>
+ <h:message for="EmailId"  style="color:red;"/>
+</div>
+</div>
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Landline Phone:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="LandlinePhone" cols="19" rows="3" class="  form-control" />
+ <h:message for="LandlinePhone"  style="color:red;"/>
+</div>
+</div>
+
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Mobile Phone 1:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="MobilePhone1" cols="19" rows="3" class="  form-control" />
+ <h:message for="MobilePhone1"  style="color:red;"/>
+</div>
+</div>
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Mobile Phone 2:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="MobilePhone2" cols="19" rows="3" class="  form-control" />
+ <h:message for="MobilePhone2"  style="color:red;"/>
+</div>
+</div>
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Employee Number:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="EmployeeNumber" cols="19" rows="3" class="  form-control" />
+ <h:message for="EmployeeNumber"  style="color:red;"/>
+</div>
+</div>
+<div class=" row form-group " >
+ <div class="col-sm-4 control-label"><h:outputLabel>Department:</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Department" cols="19" rows="3" class="  form-control" />
+ <h:message for="Department"  style="color:red;"/>
+</div>
+</div>
+ 
+  <div class="row">
+        <div class="col-md-offset-4 col-md-6">
+ <input type="back" value="Back" class="btn fontsize btn-success btn-block"></input>
+
+  </div>
+ </div>
+  </div>
+</div>
+   
+
+
+
+
+
+
+</h:form>
+</div>
+   
+    </h:body>
+    </html>
+    

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+      <h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resource/css/bootstrap.css"/>
+<link rel="stylesheet" href="resource/mystyle/home.css"/>
+<link rel="stylesheet" href="resource/mystyle/createcategory.css"/>
+
+<link rel="stylesheet" href="resource/mystyle/risk.css"/>
+ <script type="text/javascript" src="resource/js/bootstrap.js"/>
+<script type="text/javascript" src="resource/js/jquery.js"/>
+</h:head> 
+<style>
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+</style>
+
+<body> 
+<div id="header">
+	<ui:insert name="header">
+		<ui:include src="header.xhtml" />
+	</ui:insert>
+</div>
+    
+     
+  
+<div class="container" style="background-color:#8ff274;"> <p style="color:blue; padding-left: 10px;font-weight: bold;text-align:center;font-size:38px;"> <span style="color:Blue">Address </span> 
+  </p>  
+  <h:form enctype="multipart/form-data" class="form-horizontal">
+   
+<div class="row">
+  <div class="column" style="background-color:#8ff274;">
+     
+<div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Unit Name :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="unitname" cols="19" rows="3" class="  form-control" />
+ <h:message for="unitname"  style="color:red;"/>
+</div>
+</div>
+
+<div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Unit Number :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="unitnumber" cols="19" rows="3" class="  form-control" />
+ <h:message for="unitnumber"  style="color:red;"/>
+</div>
+</div>
+ <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Floor :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="floor"  cols="19" rows="3" class="  form-control" />
+ <h:message for="floor"  style="color:red;"/>
+ </div>
+</div> 
+
+
+<div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Building :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Building" cols="19" rows="3" class="  form-control" />
+ <h:message for="Building"  style="color:red;"/>
+ </div>
+</div> 
+ 
+ <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Street :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Street"  cols="19" rows="3" class="  form-control" />
+ <h:message for="Street"  style="color:red;"/>
+ </div>
+</div> 
+  </div>
+  <div class="column" style="background-color:#8ff274;">
+      <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Landmark :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Landmark" cols="19" rows="3" class="  form-control" />
+ <h:message for="Landmark"  style="color:red;"/>
+ </div>
+</div> 
+ 
+  
+
+ <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>City :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="City" cols="19" rows="3" class="  form-control" />
+ <h:message for="City"  style="color:red;"/>
+ </div>
+</div> 
+
+
+
+ <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>State :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="State" cols="19" rows="3" class="  form-control" />
+ <h:message for="State"  style="color:red;"/>
+ </div>
+</div> 
+   <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Country :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Country" cols="19" rows="3" class="  form-control" />
+ <h:message for="Country"  style="color:red;"/>
+ </div>
+</div> 
+ <div class=" row form-group " >
+ <div class="col-sm-3 control-label"><h:outputLabel>Region :</h:outputLabel></div>
+<div class=" col-sm-8"><h:inputText id="Region" cols="19" rows="3" class="  form-control" />
+ <h:message for="Region"  style="color:red;"/>
+ </div>
+</div>
+</div>
+  </div>
+
+  
+    
+
+  <div class="row">
+        <div class="col-md-offset-2 col-md-3">
+ <input type="submit" value="Save" class="btn fontsize btn-success btn-block"></input></div>
+<div class="row">
+<div class="col-md-offset-3 col-md-3">
+ <input type="submit" value="Back" class="btn fontsize btn-primary btn-block"></input>
+</div>
+  </div>
+  
+  
+</div>
+</h:form>
+</div>
+
+
+
+</body> 
+</html>
