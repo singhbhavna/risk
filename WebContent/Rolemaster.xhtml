@@ -66,24 +66,20 @@
  		
 <div class="ui-fluid">
 
-	     <p:dataTable id="projectTable" var="Role" value="#{Rolebean.projectList}" editable="true" editMode="cell" 
+	     <p:dataTable id="projectTable" var="role" value="#{rolebean.masterList}" editable="true" editMode="cell" 
 	     reflow="true" scrollable="true" scrollHeight="250" sortBy="#{Role.status},#{Role.name}"
 	      class="table table-striped table-hover table-bordered" style="margin-top:20px" 
 	         resizableColumns="true"  rows="25" rowsPerPageTemplate="25,35,50" 	 paginator="true" 
 	       paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
 	    
-	       filteredValue="#{Rolebean.filteredProjectList}"     widgetVar="projectListTable">
+	      >
 	      
-	       <f:attribute name="updateProjectId" value="#{Role.userProjectId}" />
-	      <p:ajax event="cellEdit" listener="#{Rolebean.onCellEdit}" update=":projectForm:messages" />
  
  
  
   <f:facet name="header">
 	    <div class="row" style="margin: -3px;">
-	  <div class="col-sm-4" style="margin-left: -3px" >
-	 <h:inputText id="globalFilter" onkeyup="PF('projectListTable').filter()" a:placeholder="Search on any field (s) " class="form-control "/>
-			</div>
+	 
 				
 				<div class="col-sm-6">
       		<span style=";font-size:22px;text-align:center;">Manage Role List</span>
@@ -94,27 +90,24 @@
 			</div>
 		</f:facet> 
  
-			  <p:column headerText="Role Title" sortBy="#{Role.Title}" filterBy="#{Role. Title}" filterStyle="display:none;" filterMatchMode="contains" style="padding: 0px 0px 0px 3px;">
+			  <p:column headerText="Role Name"   filterMatchMode="contains" style="padding: 0px 0px 0px 3px;">
 	        <f:facet name="header">
 					<h:outputText value="Role Name" />
 				</f:facet>
 	        
-	            <h:outputText value="#{rolebean.roleName}" />
+	            <h:outputText value="#{role.rolename}" />
 	        </p:column>
 			
+	   <p:column headerText="status"   filterMatchMode="contains" style="padding: 0px 0px 0px 3px;">
+	        <f:facet name="header">
+					<h:outputText value="status" />
+				</f:facet>
+	        
+	            <h:outputText value="#{role.status}" />
+	        </p:column>
 	 
 	 
 	 
-	 <p:column headerText="status" filterBy="#{Role.status}" sortBy="#{Role.status}"  filterStyle="display:none;" filterMatchMode="contains"  style="width:100px;padding: 0px 0px 0px 3px;text-align:left; ">
-              <p:cellEditor>
-                 <f:facet name="output"><h:outputText value="#{Role.status}" /></f:facet>
-               <f:facet name="input">
-                   <p:selectOneMenu value="#{Role.status}" onclick='setProjectHiddenValue(#{project.userProjectId})' style="width:100px">
-                       <f:selectItem   itemLabel="Active" itemValue="Active" />
-                        <f:selectItem  itemLabel="In-Active" itemValue="In-Active" />
-                   </p:selectOneMenu>
-               </f:facet>    </p:cellEditor>
-          </p:column>
 	      
 	 
 

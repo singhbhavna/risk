@@ -1,6 +1,6 @@
 package com.psas.common;
 
-import javax.management.relation.Role;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import com.psas.pojo.Bank1;
-
+import com.psas.pojo.Role;
 import com.psas.pojo.Users;
 
 public class HibernateUtil {

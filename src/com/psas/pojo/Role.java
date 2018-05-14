@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = "rolename"))
 
 public class Role implements java.io.Serializable{
 	/**
@@ -19,7 +19,7 @@ public class Role implements java.io.Serializable{
 	
 	
 	private int id;
-	private String Rolename;
+	private String rolename;
 	private Boolean status;
 	
 	
@@ -32,17 +32,14 @@ public class Role implements java.io.Serializable{
 	}
 
 
-
-	public Role(int id, String name, Boolean status) {
+	
+	public Role(int id, String rolename, Boolean status) {
 		super();
 		this.id = id;
-		this.Rolename = name;
+		this.rolename = rolename;
 		this.status = status;
 	}
-	
-	
-	
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
@@ -53,19 +50,19 @@ public class Role implements java.io.Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Column(name = "Rolename", length = 100)
+	@Column(name = "rolename", length = 100)
 	public String getRolename() {
-		return Rolename;
+		return rolename;
 	}
 
 	public void setRolename(String rolename) {
-		Rolename = rolename;
+		this.rolename = rolename;
 	}
+	
 	@Column(name = "status",  length = 100)
 	public Boolean getStatus() {
 		return status;
 	}
-	
 
 	public void setStatus(Boolean status) {
 		this.status = status;

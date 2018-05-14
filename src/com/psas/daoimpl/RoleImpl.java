@@ -37,7 +37,7 @@ public class RoleImpl implements RoleInterface {
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			roleTemp =  (Role) session.createCriteria(Role.class)
-					.add(Restrictions.eq("name",rolename.toLowerCase().trim()).ignoreCase())				
+					.add(Restrictions.eq("rolename",rolename.toLowerCase().trim()).ignoreCase())				
 					
 					.uniqueResult();
 			
