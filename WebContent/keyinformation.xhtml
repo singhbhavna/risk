@@ -1,127 +1,368 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pm="http://primefaces.org/mobile"
-      xmlns:h="http://java.sun.com/jsf/html"> 
-      <h:head>
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+ 	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<link rel="stylesheet" href="resources/mystyle/home.css"/>
+<link rel="stylesheet" href="resources/mystyle/createcategory.css"/>
+<link rel="stylesheet" href="resources/mystyle/risk.css"/>
+<link rel="stylesheet" href="resources/mystyle/button.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+<script type="text/javascript" src="resources/js/jquery.js"/>
 
 
-<link rel="stylesheet" href="resource/mystyle/button.css"/>
+<title>Key information</title>
 
-</h:head> 
-<body> 
-<style>
+</h:head>
 
+<h:body> 
 
+   <style>
+   * {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 .ui-inputfield { box-shadow: none !important; }
 </style>
+
  <div id="header">
 	<ui:insert name="header">
 		<ui:include src="header.xhtml" />
 	</ui:insert>
 	
 </div>
-  
-  
-<div class="container" style="background-color:#8ff274;"> 
- <p style="color:blue; padding-left: 10px;font-weight: bold;text-align:center;font-size:38px;"> <span style="color:Blue">Key Information </span> 
-  </p>  
-  <h:form enctype="multipart/form-data" class="form-horizontal">
-  
-    <div class="col-md-offset-1 col-md-9">
-     <div class="row">
+   
+   
+   
 
+   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+     <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+     <span class="icon-bar"></span></button>
+     <div class="container" style="background-color:#8ff274;"></div> 
+       <div class="ui-fluid" >
+     <center><h2 style="color:purple" >Key Information</h2></center>
+     <div class="container" >
+      <h:form class="form-horizontal" enctype="multipart/form-data" >
+      <br></br> 
+
+  
+      <div class="form-group row">
+      <div class="control-label col-sm-3" >
+      <h:outputLabel><span style="color:red; width:100px"> </span> Organization ID:</h:outputLabel>
+ <span style="margin-top:0px;"  data-toggle="tooltip" title="Organization ID" >
+  </span>
+   </div>
+
+      <div class="col-sm-3">
+     <h:inputText value="#{bank1bean.organizationId}" class="form-control" style="background:lightgrey;" > </h:inputText>
+    
      
- 
+     
+     
+     </div>
+      </div>
+     
+    <div class="form-group row">
+      <div class="control-label col-sm-3" >
+      <h:outputLabel><span style="color:red; width:100px"></span> Parent Org ID:</h:outputLabel>
+       <span style="margin-top:0px;"  data-toggle="tooltip" title="Risk is anything that can impact the objectives. Please enter a brief title." >
+   </span>
+</div>
 
+      <div class="col-sm-8">
+     <h:inputText value="#{bank1bean.parentorgId}" class="form-control"  > </h:inputText>
+    
+     
+     
+     
+     </div>
+      </div>
+  
+<div class=" row form-group ">
 
-    </div>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Organization ID :</h:outputLabel></div>
-<div class=" col-sm-4"><h:inputText id="OrgId" cols="19" rows="3" class="  form-control" style="background-color:lightgrey;"/>
- <h:message for="OrgId"  style="color:red;"/>
-</div>
-</div>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Parent Organization ID :</h:outputLabel></div>
-<div class=" col-sm-4"><h:inputText id="parentId" cols="19" rows="3" class="  form-control" background-color="grey" />
- <h:message for="parentId"  style="color:red;"/>
-</div>
-</div>
-     <div class=" form-group " >
- 
- <div class="col-sm-4 control-label"><h:outputLabel>Organization Type :</h:outputLabel></div>
-<div class=" col-sm-8 ">
+<div class="col-sm-3 control-label"> 
 
-<p:selectOneMenu value="#{orgtype.orgtype}"  style="  border: none; width:550px;">
-            <f:selectItem itemLabel="Select" itemValue="" />
-             <f:selectItem itemLabel="High" itemValue="Enterprise" />
-              <f:selectItem itemLabel="Medium" itemValue="Holding Company" />
-               <f:selectItem itemLabel="Low" itemValue="Group" />
+ <h:outputLabel>Organization Type:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Organization Type" >
+   </span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  value="#{bank1bean.organizationtype}"  class="form-control" style="  border: none; width:255px;">
+           <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Enterprise" itemValue="Enterprise" />
+              <f:selectItem itemLabel="Holding Company" itemValue="Holding Company" />
+               <f:selectItem itemLabel="Group" itemValue="Group" />
             <f:selectItem itemLabel="Region" itemValue="Region" />
              <f:selectItem itemLabel="Department" itemValue="Department" />
               <f:selectItem itemLabel="Section" itemValue="Section" />
                <f:selectItem itemLabel="Unit" itemValue="Unit" />
                 <f:selectItem itemLabel="Division" itemValue="Division" />
 
-        </p:selectOneMenu>
-    </div>
- <h:message for="OrgType"  style="color:red;"/> 
-<br></br><br></br>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Short Name:</h:outputLabel></div>
-<div class=" col-sm-8"><h:inputText id="OrganisationTitle" cols="19" rows="3" class="  form-control" />
- <h:message for="OrganisationTitle"  style="color:red;"/>
+             
+             
+            </p:selectOneMenu>
+
 </div>
+
+
+
+
+<div class="col-sm-2 control-label">
+<h:outputLabel>website:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Industry" >
+  </span>
 </div>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Organization Description:</h:outputLabel></div>
-<div class=" col-sm-8"><h:inputTextarea id="OrganisationDescription" cols="19" rows="5" class="  form-control" />
- <h:message for="OrganisationDescription"  style="color:red;"/>
-</div>
-</div>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Website:</h:outputLabel></div>
-<div class=" col-sm-8"><h:inputText id="Website" cols="19" rows="3" class="  form-control" />
- <h:message for="Website"  style="color:red;"/>
-</div>
-</div>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Telephone No:</h:outputLabel></div>
-<div class=" col-sm-8"><h:inputText id="TelephoneNo" cols="19" rows="3" class="  form-control" />
- <h:message for="TelephoneNo"  style="color:red;"/>
-</div>
-</div>
-<div class=" row form-group " >
- <div class="col-sm-4 control-label"><h:outputLabel>Fax No:</h:outputLabel></div>
-<div class=" col-sm-8"><h:inputText id="FaxNo" cols="19" rows="3" class="  form-control" />
- <h:message for="FaxNo"  style="color:red;"/>
-</div>
-</div>
- </div>
- </div>
+ <div class=" col-sm-3">
  
+<h:inputText value="#{bank1bean.website}" class="form-control"> </h:inputText>
+
+</div></div>
+
+
 <div class=" row form-group ">
- <div class="col-sm-4 .col-sm-offset-4"></div>
-<div class="col-sm-2"><h:commandLink action="#{createrequest.save()}" value="Save" style="text-decoration:none; color:#fff;" class="btn fontsize btn-success btn-block"></h:commandLink></div>
-<div class="col-sm-2"><h:link value="Back " style="text-decoration:none; color:#fff;" outcome="keyinformation"  class="btn fontsize btn-primary btn-block"/></div>
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Fax:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Function" >
+  </span>
+ </div>
+ <div class=" col-sm-3">
+  <h:inputText value="#{bank1bean.fax}" class="form-control"> </h:inputText>   
+
+</div>
+<div class="col-sm-2 control-label">
+<h:outputLabel>Telephone:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Section" >
+  </span>
+</div>
+ <div class=" col-sm-3">
+ <h:inputText value="#{bank1bean.telephone}" class="form-control"> </h:inputText>
+
+</div>
+</div>
+
+   <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="shortname"   value="Short Name:&nbsp;" ><span style="margin-top:0px;"  data-toggle="tooltip" title="Background" >
+  </span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputText value="#{bank1bean.shortname}" class="form-control" ></h:inputText></div></div>
+      
+       <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="Organization Description"   value="Organization Description:&nbsp;" ><span style="margin-top:0px;"  data-toggle="tooltip" title="Remarks" >
+  </span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.organizationdescription}" class="form-control" ></h:inputTextarea></div></div>
+      
+
+
+     
+   <div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Status:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="">
+  </span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  class="form-control" style="  border: none; width:255px;">
+           
+            <f:selectItem itemLabel="Active" itemValue="true" />
+             <f:selectItem itemLabel="In-Active" itemValue="false" />
+          
+        </p:selectOneMenu>
 
 </div>
   
-       
+ <div class="col-sm-2 control-label">
+
+<h:outputLabel style="white-space:nowrap;">Attach File :</h:outputLabel></div>
+<div class="col-sm-4">
+<p:growl id="msg"></p:growl>
+			<p:fileUpload  mode="simple" skinSimple="true"/>
+</div>
+</div>
   
   
- 
- </h:form>
- 
- 
- </div>
+  
+<div class=" row form-group ">
+ <div class="col-sm-3 .col-sm-offset-3"></div>
+<div class="col-sm-4">
+<h:commandLink  value="Save" style="text-decoration:none; color:#fff;" action="#{bank1bean.submit}" class="btn fontsize btn-success btn-block"></h:commandLink></div>
+<div class="col-sm-4"></div>
+<div class="col-sm-4"><h:link value="Back " style="text-decoration:none; color:#fff;" outcome="keyinformation"  class="btn fontsize btn-primary btn-block"/></div>
+
+</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
-</body> 
+  
+  
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+</h:form>
+
+
+
+</div></div><br></br>
+<marquee bgcolor="silver" width="100%">Prudential Success Assurance System -Enterprise Risk Management System(Risk Management), Target-Organisations who need to manage their risks and improve performance..</marquee>
+
+
+
+
+
+<h:form id="keyinformationForm">
+<p:growl id="messages" showDetail="true"  autoUpdate="true"/>
+
+      <div  class="gridmargin">
+ 		
+<div class="ui-fluid">
+
+<p:dataTable  id="keyinformation"   var="bank1bean" value="#{bank1bean.bankList}" 
+	    scrollable="true" scrollHeight="250"
+	      class="table table-striped table-hover table-bordered" style="margin-top:20px" 
+	         rows="25" rowsPerPageTemplate="25,35,50">
+	
+  <f:facet name="header">
+	    <div class="row" style="margin: -3px;">
+	    <span style="font-size:22px;text-align:center;">Manage key information
+	     
+		<strong>Export Data &nbsp;</strong>
+		
+		<h:commandLink id="excel">
+	     <img  src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
+	          <p:dataExporter type="xls" target="risktable" fileName="bank1bean" postProcessor="#{bank1bean.postProcessXLS}" />
+	    </h:commandLink>
+		
+		
+		 <h:commandLink id="pdf" >
+	     <img  src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
+	       <p:dataExporter type="pdf" target="risktable" fileName="bank1bean" preProcessor="#{bank1bean.preProcessPDF}" />
+	    </h:commandLink>	
+	 	
+	</span>
+    	</div>
+	</f:facet> 
+	 
+	          <p:column  headerText="ID">
+	        <f:facet name="header">
+					<h:outputText value="id" />
+				</f:facet>
+	         <h:outputText value="#{bank1bean.id}" />
+	        </p:column>
+	  <p:column filterBy="#{bank1bean.risktitle}" sortBy="#{bank1bean.risktitle}" headerText=" Risk Title" filterStyle="display:true;" 
+	        filterMatchMode="contains">
+	        <f:facet name="header">
+	     	<h:outputText value="Organization ID" />
+				</f:facet>
+	         <h:outputText value="#{bank1bean.organizationId}" />
+	        </p:column>
+	         
+	          <p:column  headerText="Parent org ID">
+	        <f:facet name="header">
+					<h:outputText value="Parent org ID" />
+				</f:facet>
+	         <h:outputText value="#{bank1bean.parentorgId}" />
+	        </p:column>
+	        
+	    <p:column headerText="shortname">
+	        <f:facet name="header">
+					<h:outputText value="shortname" />
+				</f:facet>
+	        <h:outputText value="#{bank1bean.shortname}" />
+	        </p:column>
+	        
+	       <p:column headerText="Org description">
+	        <f:facet name="header">
+					<h:outputText value="Org description" />
+				</f:facet>
+	        <h:outputText value="#{bank1bean.organizationdescription}" />
+	        </p:column>
+	          
+	       <p:column headerText="Org Type">
+	        <f:facet name="header">
+					<h:outputText value="Org type" />
+				</f:facet>
+	        <h:outputText value="#{bank1bean.organizationtype}" />
+	        </p:column>
+	          <p:column headerText="website">
+	        <f:facet name="header">
+					<h:outputText value="website" />
+				</f:facet>
+	         <h:outputText value="#{bank1bean.website}" />
+	        </p:column>
+	        
+	         <p:column headerText="Telephone">
+	        <f:facet name="header">
+					<h:outputText value="Telephone" />
+				</f:facet>
+	       <h:outputText value="#{bank1bean.telephone}" />
+	        </p:column>
+	         <p:column headerText="fax">
+	       <f:facet name="header">
+					<h:outputText value="fax" />
+				</f:facet>
+	       <h:outputText value="#{bank1bean.fax}" />
+	        </p:column>
+	         
+	 
+
+	    
+</p:dataTable>        </div></div></h:form>
+
+
+
+
+</h:body>
 </html>
+
+
+
+
+

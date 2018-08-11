@@ -3,13 +3,14 @@ package com.psas.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.relation.RoleList;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.primefaces.extensions.component.masterdetail.MasterDetail;
 
+import org.primefaces.model.UploadedFile;
+
+import com.psas.beans.Rolebean;
 import com.psas.common.HibernateUtil;
 import com.psas.dao.RoleInterface;
 import com.psas.pojo.Role;
@@ -24,7 +25,7 @@ public class RoleImpl implements RoleInterface {
 
 
 	@Override
-	public int getsaverole(String rolename) throws Exception {		
+	public int getsaverole(String rolename,UploadedFile attachment) throws Exception {		
 		// TODO Auto-generated method stub
 		
 		Role roleTemp = null;
@@ -50,7 +51,7 @@ public class RoleImpl implements RoleInterface {
 				
 				roleTemp.setRolename(rolename);
 				roleTemp.setStatus(true);
-				
+			//	roleTemp.setAttachment(attachment.getContents());
 				
 				session.save(roleTemp);
 				
@@ -90,11 +91,12 @@ public class RoleImpl implements RoleInterface {
 	@Override
 	public List<MasterVo> getretrive() throws Exception {
 		// TODO Auto-generated method stub
-		List<MasterVo> RoleList = new ArrayList<MasterVo>();
+		List<MasterVo> roleList = new ArrayList<MasterVo>();
+		@SuppressWarnings("unused")
 		Role roleTemp = null;
 		Session session = null;
 		Transaction tx = null;
-		MasterVo MasterVo=null;
+		MasterVo masterVo=null;
 		try
 		{
            	session = HibernateUtil.getSession();
@@ -109,14 +111,14 @@ public class RoleImpl implements RoleInterface {
 			for(Role roleDB :getRoleList){
 			
 			
-			MasterVo= new MasterVo();
-			
+				masterVo= new MasterVo();
+				masterVo.setId(roleDB.getId());
 					
-			MasterVo.setRolename(roleDB.getRolename());
-			MasterVo.setStatus(roleDB.getStatus());
+				masterVo.setRolename(roleDB.getRolename());
+				masterVo.setStatus(roleDB.getStatus());
 			
 			
-			RoleList.add(MasterVo);
+			roleList.add(masterVo);
 			
 			
 		
@@ -134,7 +136,69 @@ public class RoleImpl implements RoleInterface {
             session.close();
 	    }
 
-		return RoleList;
+		return roleList;
 	}
-}
+
+
+
+
+
+
+	@Override
+	public MasterVo getretrivedata(int id) throws Exception  {
+		// TODO Auto-generated method stub
+		MasterVo masterVo = new MasterVo();
+		Role rolebeanTemp = null;
+		Session session = null;
+		Transaction tx = null;
+		
+		Integer result =0;
+		try
+		{
+           	session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+		
+            
+		
+            rolebeanTemp = (Role) session.createCriteria(Role.class)	
+					.add(Restrictions.eq("id",Integer.valueOf(id)))
+					.uniqueResult();			
+					
+           
+		if(rolebeanTemp != null){
+			
+			masterVo.setId(rolebeanTemp.getId());
+		    	
+			masterVo.setRolename(rolebeanTemp.getRolename());
+		
+			}
+		
+			tx.commit();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+        	if(session != null)
+            session.close();
+	    }
+
+		return masterVo;
+	}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,84 +1,74 @@
 package com.psas.vo;
 
 public class BankVo {
-
-	private String BankRisk;
-	private String Risktitle;
-	private String Riskdescription;
-	private String Source;
-	private String Function;
-	private String Industry;
-	private String Section;
-	private String Background;
-	private String Remarks;
-	private String Notes;
-	private String Status;
-	public String getBankRisk() {
-		return BankRisk;
+	private int id;
+	private String organizationId;
+	private String parentorgId;
+	
+	private String organizationdescription;
+	private String shortname;
+	private String website;
+	private String telephone;
+	private String fax;
+	private String organizationtype;
+	
+	public int getId() {
+		return id;
 	}
-	public void setBankRisk(String bankRisk) {
-		BankRisk = bankRisk;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getRisktitle() {
-		return Risktitle;
+	public String getOrganizationId() {
+		return organizationId;
 	}
-	public void setRisktitle(String risktitle) {
-		Risktitle = risktitle;
+	public void setOrganizationId(String organizationId) {
+		this.organizationId = organizationId;
 	}
-	public String getRiskdescription() {
-		return Riskdescription;
+	public String getParentorgId() {
+		return parentorgId;
 	}
-	public void setRiskdescription(String riskdescription) {
-		Riskdescription = riskdescription;
+	public void setParentorgId(String parentorgId) {
+		this.parentorgId = parentorgId;
 	}
-	public String getSource() {
-		return Source;
+	
+	public String getOrganizationdescription() {
+		return organizationdescription;
 	}
-	public void setSource(String source) {
-		Source = source;
+	public void setOrganizationdescription(String organizationdescription) {
+		this.organizationdescription = organizationdescription;
 	}
-	public String getFunction() {
-		return Function;
+	public String getshortname() {
+		return shortname;
 	}
-	public void setFunction(String function) {
-		Function = function;
+	public void setshortname(String shortname) {
+		this.shortname = shortname;
 	}
-	public String getIndustry() {
-		return Industry;
+	public String getWebsite() {
+		return website;
 	}
-	public void setIndustry(String industry) {
-		Industry = industry;
+	public void setWebsite(String website) {
+		this.website = website;
 	}
-	public String getSection() {
-		return Section;
+	public String getTelephone() {
+		return telephone;
 	}
-	public void setSection(String section) {
-		Section = section;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
-	public String getBackground() {
-		return Background;
+	public String getFax() {
+		return fax;
 	}
-	public void setBackground(String background) {
-		Background = background;
+	public void setFax(String fax) {
+		this.fax = fax;
 	}
-	public String getRemarks() {
-		return Remarks;
+	public String getOrganizationtype() {
+		return organizationtype;
 	}
-	public void setRemarks(String remarks) {
-		Remarks = remarks;
+	public void setOrganizationtype(String organizationtype) {
+		this.organizationtype = organizationtype;
 	}
-	public String getNotes() {
-		return Notes;
-	}
-	public void setNotes(String notes) {
-		Notes = notes;
-	}
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
-	}
+	
+	
 	
 	
 }

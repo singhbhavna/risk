@@ -59,7 +59,7 @@ public class AuthorizationFilter implements Filter {
 					|| reqURI.contains("javax.faces.resource")) {
 				chain.doFilter(request, response);
 			}
-		
+			
 			else if(reqURI.indexOf("/Riskbank.xhtml") >=0 
 					|| (ses != null && ses.getAttribute("username") != null)
 					|| reqURI.indexOf("/public/") >= 0
@@ -124,6 +124,30 @@ public class AuthorizationFilter implements Filter {
 				chain.doFilter(request, response);
 			}
 			else if(reqURI.indexOf("/category.xhtml") >=0 
+					|| (ses != null && ses.getAttribute("username") != null)
+					|| reqURI.indexOf("/public/") >= 0
+					|| reqURI.contains("javax.faces.resource")) {
+				chain.doFilter(request, response);
+			}
+			else if(reqURI.indexOf("/Attachment.xhtml") >=0 
+					|| (ses != null && ses.getAttribute("username") != null)
+					|| reqURI.indexOf("/public/") >= 0
+					|| reqURI.contains("javax.faces.resource")) {
+				chain.doFilter(request, response);
+			}
+			else if(reqURI.indexOf("/tab.xhtml") >=0 
+					|| (ses != null && ses.getAttribute("username") != null)
+					|| reqURI.indexOf("/public/") >= 0
+					|| reqURI.contains("javax.faces.resource")) {
+				chain.doFilter(request, response);
+			}
+			else if(reqURI.indexOf("/viewandupdaterisk.xhtml") >=0 
+					|| (ses != null && ses.getAttribute("username") != null)
+					|| reqURI.indexOf("/public/") >= 0
+					|| reqURI.contains("javax.faces.resource")) {
+				chain.doFilter(request, response);
+			}
+			else if(reqURI.indexOf("/risk.xhtml") >=0 
 					|| (ses != null && ses.getAttribute("username") != null)
 					|| reqURI.indexOf("/public/") >= 0
 					|| reqURI.contains("javax.faces.resource")) {

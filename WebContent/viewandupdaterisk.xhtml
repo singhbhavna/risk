@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+ 	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resource/css/bootstrap.css"/>
+<link rel="stylesheet" href="resource/mystyle/home.css"/>
+<link rel="stylesheet" href="resource/mystyle/createcategory.css"/>
+<link rel="stylesheet" href="resource/css/risk.css"/>
+  <link rel="stylesheet" href="resource/mystyle/button.css"/>
+<script type="text/javascript" src="resource/js/bootstrap.js"/>
+<script type="text/javascript" src="resource/js/jquery.js"/>
+
+
+<title>Risk Bank-Definition</title>
+
+</h:head>
+
+<h:body> 
+<div id="Riskbank">
+ <ui:insert name="header">
+		<ui:include src="header.xhtml" />
+	</ui:insert></div>
+   
+   
+   
+   
+
+   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+     <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+     <span class="icon-bar"></span></button>
+     
+
+      <div class="container" >
+      <h:form class="form-horizontal" enctype="multipart/form-data" >
+      <br></br> 
+<h:inputHidden id="riskbankId" value="#{bank1bean.riskbankId}" ></h:inputHidden>
+      <div class="form-group row">
+      <div class="control-label col-sm-3" >
+      <h:outputLabel><span style="color:red; width:100px"> </span> Bank Risk ID:</h:outputLabel>
+ <span style="margin-top:0px;"  data-toggle="tooltip" title="Bank Risk ID" class="pull-right glyphicon glyphicon-info-sign">
+  </span>
+   </div>
+
+      <div class="col-sm-3">
+     <h:inputText value="#{bank1bean.bankVo.riskbankId}" class="form-control" style="background:lightgrey;" > </h:inputText>
+    
+     
+     
+     
+     </div>
+      </div>
+     
+    <div class="form-group row">
+      <div class="control-label col-sm-3" >
+      <h:outputLabel><span style="color:red; width:100px">* </span> Risk Title:</h:outputLabel>
+ <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Risk is anything that can impact the objectives. Please enter a brief title." 
+></span></div>
+
+      <div class="col-sm-8">
+     <h:inputText value="#{bank1bean.bankVo.risktitle}" class="form-control"  > </h:inputText>
+    
+     
+     
+     
+     </div>
+      </div>
+   
+    <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="Description"   value=" Risk Description:&nbsp;" ><span   data-toggle="tooltip" title="Please describe the Description in more details." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.bankVo.riskdescription}" class="form-control" style="background:lightgrey;"></h:inputTextarea></div></div>
+      
+
+
+<div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Source:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="source" 
+></span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  value="#{bank1bean.source}"  style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Bank" itemValue="Bank" />
+             <f:selectItem itemLabel="Risk" itemValue="Risk" />
+             <f:selectItem itemLabel="Org" itemValue="Org" />
+            </p:selectOneMenu>
+
+</div>
+
+
+
+
+<div class="col-sm-2 control-label">
+<h:outputLabel>Industry:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Industry" 
+></span>
+</div>
+ <div class=" col-sm-2">
+ 
+<p:selectOneMenu value="#{bank1bean.industry}"  style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Delhi" itemValue="Delhi" />
+              <f:selectItem itemLabel="Mumbai" itemValue="Mumbai" />
+               <f:selectItem itemLabel="Gurgoan" itemValue="Gurgoan" />
+         
+        </p:selectOneMenu>
+
+</div></div>
+
+
+<div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Function:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Function" 
+></span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  value="#{bank1bean.function}"  style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+             <f:selectItem itemLabel="Finance" itemValue="Finance" />
+              <f:selectItem itemLabel="HR" itemValue="HR" />  
+             <f:selectItem itemLabel="Sales and Marketing" itemValue="Sale and Marketing" />
+            <f:selectItem itemLabel="Production" itemValue="Production" />
+             <f:selectItem itemLabel="Maintenance" itemValue="Maintenance" />
+             <f:selectItem itemLabel="Security" itemValue="Security" />
+             <f:selectItem itemLabel="Audit" itemValue="Audit" />
+             <f:selectItem itemLabel="Supply Chain" itemValue="Supply Chain" />
+            
+           
+          
+        </p:selectOneMenu>
+
+</div>
+<div class="col-sm-2 control-label">
+<h:outputLabel>Section:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Section" 
+></span>
+</div>
+ <div class=" col-sm-3">
+ 
+<p:selectOneMenu  value="#{bank1bean.section}" style="  border: none; width:255px;">
+            <f:selectItem itemLabel="Select" itemValue="" />
+            <f:selectItem itemLabel="Chesses" itemValue="Chesses" />
+            <f:selectItem itemLabel="Cricket" itemValue="Cricket" />
+            <f:selectItem itemLabel="TT-Table" itemValue="TT-Table" />
+           
+        </p:selectOneMenu>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="background"   value="Background:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Background , If Any." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.bankVo.background}" class="form-control" ></h:inputTextarea></div></div>
+      
+       <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="remarks"   value="Remarks:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Remarks , If Any." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.bankVo.remarks}" class="form-control" ></h:inputTextarea></div></div>
+      
+
+
+       <div class="form-group row">
+    <div class="control-label col-sm-3">
+    <h:outputLabel  for="notes"   value="Notes:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Notes , If Any." 
+    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <div class="col-sm-8">
+    <h:inputTextarea value="#{bank1bean.bankVo.notes}" class="form-control" ></h:inputTextarea></div></div>
+      
+     
+      
+  
+
+
+
+
+<div class=" row form-group ">
+ <div class="col-sm-3 .col-sm-offset-3"></div>
+<div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Submit" style="text-decoration:none; color:#fff;" class="btn fontsize btn-success btn-block"></h:commandButton></div>
+<div class="col-sm-4"></div>
+<div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Back" style="text-decoration:none; color:#fff;" class="btn fontsize btn-primary btn-block"></h:commandButton></div>
+<div class="col-sm-4"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+      
+
+</h:form>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</h:body>
+</html>
+
+
+
+
+

@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.primefaces.extensions.component.masterdetail.MasterDetail;
+import org.primefaces.model.UploadedFile;
 
+import com.psas.common.HibernateUtil;
 import com.psas.common.HibernateUtil;
 import com.psas.dao.Bank2Interface;
 
@@ -20,12 +22,10 @@ import com.psas.vo.BankVo;
 
 public class BankImpl implements Bank2Interface {
 
-	
-
-
 
 	@Override
-	public int getstart(String Bankrisk, String risktitle, String riskdescription, String source, String function, String industry, String section, String background, String remarks, String notes, String status) throws Exception {		
+	public int getstart(String organizationId, String shortname, String parentorgId, String organizationdescription,
+			String website, String telephone, String fax, String organizationtype) throws Exception {		
 		// TODO Auto-generated method stub
 		
 		Bank1 BankTemp = null;
@@ -37,8 +37,9 @@ public class BankImpl implements Bank2Interface {
 			
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
+				
 			BankTemp =  (Bank1) session.createCriteria(Bank1.class)
-					.add(Restrictions.eq("risktitle",risktitle.toLowerCase().trim()).ignoreCase())				
+					.add(Restrictions.eq("shortname",shortname))				
 					
 					.uniqueResult();
 			
@@ -50,19 +51,15 @@ public class BankImpl implements Bank2Interface {
 				BankTemp = new Bank1();
 				
 				
-				BankTemp.setStatus(true);
-				BankTemp.setBackground(background);
-		        BankTemp.setFunction(function);
-				BankTemp.setRemarks(remarks);
-				BankTemp.setRiskdescription(riskdescription);
-				BankTemp.setRisktitle(risktitle);
-	            BankTemp.setNotes(notes);
-				BankTemp.setIndustry(industry);
-				BankTemp.setSection(section);
-				BankTemp.setSource(source);
-				
-				
-				
+				BankTemp.setOrganizationdescription(organizationdescription);
+				BankTemp.setOrganizationId(organizationId);
+				BankTemp.setOrganizationtype(organizationtype);
+				BankTemp.setParentorgId(parentorgId);
+				BankTemp.setFax(fax);
+				BankTemp.setShortname(shortname);
+				BankTemp.setTelephone(telephone);
+				BankTemp.setWebsite(website);
+
 				
 				session.save(BankTemp);
 				
@@ -99,21 +96,21 @@ public class BankImpl implements Bank2Interface {
 
 	
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<BankVo> getstart1() throws Exception {
 		// TODO Auto-generated method stub
 		List<BankVo> BankList = new ArrayList<BankVo>();
+		
 		Bank1 Bank1Temp = null;
 		Session session = null;
 		Transaction tx = null;
 		BankVo BankVo=null;
 		try
 		{
-           	session = HibernateUtil.getSession();
+			session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-		
             
-			@SuppressWarnings("unchecked")
 			List<Bank1> getBankList = (List<Bank1>) session
 					.createCriteria(Bank1.class)					
 					.list();
@@ -124,24 +121,17 @@ public class BankImpl implements Bank2Interface {
 				BankVo= new BankVo();
 			
 					
-				
-		    	
-		    	BankVo.setNotes(Bank1DB.getNotes());
-		    	BankVo.setBackground(Bank1DB.getBackground());
-		    	BankVo.setRemarks(Bank1DB.getRemarks());
-		    	BankVo.setRiskdescription(Bank1DB.getRiskdescription());
-		        BankVo.setRisktitle(Bank1DB.getRisktitle());
-		        BankVo.setFunction(Bank1DB.getFunction());
-		        BankVo.setIndustry(Bank1DB.getIndustry());
-		        BankVo.setSource(Bank1DB.getSource());
-		        BankVo.setSection(Bank1DB.getSection());
-		        
-		        if(Bank1DB.getStatus().equals(true)){
-		        	BankVo.setStatus("Active");
-		        }else{
-		        	BankVo.setStatus("Active");
-		        }
-		        
+				BankVo.setId(Bank1DB.getId());
+				BankVo.setOrganizationId(Bank1DB.getOrganizationId());
+				BankVo.setParentorgId(Bank1DB.getParentorgId());
+				BankVo.setOrganizationtype(Bank1DB.getOrganizationtype());
+				BankVo.setshortname(Bank1DB.getShortname());
+				BankVo.setOrganizationdescription(Bank1DB.getOrganizationdescription());
+				BankVo.setWebsite(Bank1DB.getWebsite());
+				BankVo.setTelephone(Bank1DB.getTelephone());
+				BankVo.setFax(Bank1DB.getFax());
+			
+			
 			
 			BankList.add(BankVo);
 			
@@ -170,8 +160,6 @@ public class BankImpl implements Bank2Interface {
 
 
 	
-
-
 
 
 	

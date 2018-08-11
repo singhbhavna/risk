@@ -2,15 +2,19 @@ package com.psas.dao;
 
 import java.util.List;
 
-import javax.management.relation.RoleList;
+
+
+import org.primefaces.model.UploadedFile;
 
 import com.psas.vo.MasterVo;
 
 public interface RoleInterface {
 
-	int getsaverole(String rolename) throws Exception;
+	public int getsaverole(String rolename, UploadedFile attachment) throws Exception;
 
-	List<MasterVo> getretrive()throws Exception;;
+	List<MasterVo> getretrive()throws Exception;
+
+	public MasterVo getretrivedata(int id) throws Exception;;
 
 	
 }

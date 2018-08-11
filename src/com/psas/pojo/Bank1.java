@@ -8,8 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.criterion.Restrictions;
+import org.primefaces.model.UploadedFile;
+
+import com.psas.common.HibernateUtil;
+
 @Entity
-@Table(name = "Bank1", uniqueConstraints = @UniqueConstraint(columnNames = "Bankrisk"))
+@Table(name = "Bank1", uniqueConstraints = @UniqueConstraint(columnNames = "shortname"))
 
 public class Bank1 implements java.io.Serializable{
 	/**
@@ -19,17 +24,14 @@ public class Bank1 implements java.io.Serializable{
 	
 	
 	private int id;
-	private String BankRisk;
-	private String Risktitle;
-	private String Riskdescription;
-	private String Source;
-	private String Function;
-	private String Industry;
-	private String Section;
-	private String Background;
-	private String Remarks;
-	private String Notes;
-	private Boolean status;
+	private String organizationId;
+	private String parentorgId;
+    private String organizationdescription;
+	private String shortname;
+	private String website;
+	private String telephone;
+	private String fax;
+	private String organizationtype;
 	
 	
 	public Bank1(int id) {
@@ -39,25 +41,24 @@ public class Bank1 implements java.io.Serializable{
 	public Bank1() {
 		
 	}
+	
 
 
 	
-
-	public Bank1(int id, String bankRisk, String risktitle, String riskdescription, String source, String function,
-			String industry, String section, String background, String remarks, String notes, Boolean status) {
+	public Bank1(int id, String organizationId, String parentorgId, String shortname, String organizationdescription,
+			String shortname2, String website, String telephone, String fax, String organizationtype, byte[] file) {
 		super();
 		this.id = id;
-		BankRisk = bankRisk;
-		Risktitle = risktitle;
-		Riskdescription = riskdescription;
-		Source = source;
-		Function = function;
-		Industry = industry;
-		Section = section;
-		Background = background;
-		Remarks = remarks;
-		Notes = notes;
-		this.status = status;
+		this.organizationId = organizationId;
+		this.parentorgId = parentorgId;
+		
+		this.organizationdescription = organizationdescription;
+		shortname = shortname;
+		this.website = website;
+		this.telephone = telephone;
+		this.fax = fax;
+		this.organizationtype = organizationtype;
+		
 	}
 
 	@Id
@@ -67,106 +68,76 @@ public class Bank1 implements java.io.Serializable{
 		return id;
 	}
 
-	public void setId(int id2) {
-		this.id = id2;
+	public void setId(int id) {
+		this.id = id;
 	}
-	@Column(name = "BankRisk",  length = 100)
-	public String getBankRisk() {
-		return BankRisk;
-	}
-
-	public void setBankRisk(String bankRisk) {
-		BankRisk = bankRisk;
-	}
-	@Column(name = "Risktitle",  length = 100)
-	public String getRisktitle() {
-		return Risktitle;
+	@Column(name = "organizationId", length = 100)
+	public String getOrganizationId() {
+		return organizationId;
 	}
 
-	public void setRisktitle(String risktitle) {
-		Risktitle = risktitle;
+	public void setOrganizationId(String organizationId) {
+		this.organizationId = organizationId;
 	}
-	@Column(name = "Riskdescription",  length = 100)
-	public String getRiskdescription() {
-		return Riskdescription;
-	}
-
-	public void setRiskdescription(String riskdescription) {
-		Riskdescription = riskdescription;
-	}
-	@Column(name = "Source",  length = 100)
-	public String getSource() {
-		return Source;
+	@Column(name = "parentorgId", length = 100)
+	public String getParentorgId() {
+		return parentorgId;
 	}
 
-	public void setSource(String source) {
-		Source = source;
-	}
-	@Column(name = "Function",  length = 100)
-	public String getFunction() {
-		return Function;
-	}
-
-	public void setFunction(String function) {
-		Function = function;
-	}
-	@Column(name = "Industry",  length = 100)
-	public String getIndustry() {
-		return Industry;
-	}
-
-	public void setIndustry(String industry) {
-		Industry = industry;
-	}
-	@Column(name = "Section",  length = 100)
-	public String getSection() {
-		return Section;
-	}
-
-	public void setSection(String section) {
-		Section = section;
-	}
-	@Column(name = "Background",  length = 100)
-	public String getBackground() {
-		return Background;
-	}
-
-	public void setBackground(String background) {
-		Background = background;
-	}
-	@Column(name = "Remarks",  length = 100)
-	public String getRemarks() {
-		return Remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		Remarks = remarks;
-	}
-	@Column(name = "Notes",  length = 100)
-	public String getNotes() {
-		return Notes;
-	}
-
-	public void setNotes(String notes) {
-		Notes = notes;
-	}
-	@Column(name = "Status",  length = 100)
-	public Boolean getStatus() {
-		return status;
-	}
-
-	public void setStatus(Boolean status) {
-		this.status = status;
+	public void setParentorgId(String parentorgId) {
+		this.parentorgId = parentorgId;
 	}
 	
+	@Column(name = "organizationdescription", length = 100)
+	public String getOrganizationdescription() {
+		return organizationdescription;
+	}
+
+	public void setOrganizationdescription(String organizationdescription) {
+		this.organizationdescription = organizationdescription;
+	}
+	@Column(name = "shortname", length = 100)
+	public String getShortname() {
+		return shortname;
+	}
+
+	public void setShortname(String shortname) {
+		this.shortname = shortname;
+	}
+	@Column(name = "website", length = 100)
+	public String getWebsite() {
+		return website;
+	}
 	
-	
-	
-	
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	@Column(name = "telephone", length = 100)
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	@Column(name = "fax", length = 100)
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+	@Column(name = "organizationtype", length = 100)
+	public String getOrganizationtype() {
+		return organizationtype;
+	}
+
+	public void setOrganizationtype(String organizationtype) {
+		this.organizationtype = organizationtype;
+	}
 	
 
-	
-	
 	
 
 	

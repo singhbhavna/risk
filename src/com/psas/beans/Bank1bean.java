@@ -1,15 +1,17 @@
 package com.psas.beans;
 
 
-	import java.io.IOException;
+import java.io.IOException;
 import java.util.ArrayList;
-	import java.util.List;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-	import javax.faces.bean.ManagedBean;
-	import javax.faces.bean.RequestScoped;
-	import javax.faces.context.FacesContext;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -17,6 +19,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.primefaces.model.UploadedFile;
 
 import com.lowagie.text.BadElementException;
 import com.lowagie.text.Document;
@@ -24,30 +27,33 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
 import com.psas.dao.Bank2Interface;
 import com.psas.daoimpl.BankImpl;
-
 import com.psas.vo.BankVo;
+
+
+
 @ManagedBean(name = "bank1bean", eager = true)
 @RequestScoped
-
+@ViewScoped
 	
 public class Bank1bean {
 	private int id;
-	private String BankRisk;
-	private String Risktitle;
-	private String Riskdescription;
-	private String Source;
-	private String Function;
-	private String Industry;
-	private String Section;
-	private String Background;
-	private String Remarks;
-	private String Notes;
-	private String Status; 
+	private String organizationId;
+	private String parentorgId;
+    private String organizationdescription;
+	private String shortname;
+	private String website;
+	private String telephone;
+	private String fax;
+	private String organizationtype;
+	
+	
+	
+	
 private Bank2Interface bj=new BankImpl();
 	
 private  List<BankVo> bankList=new ArrayList<BankVo>();
 
-
+BankVo bankVo = new BankVo();
 @PostConstruct
 public void init(){
 	bankList = new  ArrayList<BankVo>();
@@ -70,7 +76,7 @@ public String submit(){
 	int result=0;
 	
 	try {
-		result=bj.getstart(BankRisk,Risktitle,Riskdescription,Source,Function,Industry,Section,Background,Remarks,Notes,Status);
+		result=bj.getstart(organizationId,shortname, parentorgId,organizationdescription,website, telephone,fax,organizationtype);
 		
 		
 		if(result == 1)
@@ -80,245 +86,35 @@ public String submit(){
 			
 			FacesContext.getCurrentInstance().addMessage(
 					null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN,
-							"Role created  successfully.",
-							"Role created  successfully."));
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"Risk Bank created  successfully.",
+							"Risk Bank created  successfully."));
 		}
 		
 		
 		if(result==2){
 			FacesContext.getCurrentInstance().addMessage(
 					null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN,
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
 							"enter users",
 							"Please check and try again"));
-			return "Riskbank";
+			return "keyinformation";
 		}
 		
 	}catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		return "Riskbank";
+		return "keyinformation";
 	}
 	
 	
 	
-	return "Riskbank";
+	return "keyinformation";
 	
 	
 	
 }
 
-
-
-
-
-
-
-
-public int getId() {
-	return id;
-}
-
-
-
-
-
-public void setId(int id) {
-	this.id = id;
-}
-
-
-
-
-
-public String getBankRisk() {
-	return BankRisk;
-}
-
-
-
-
-
-public void setBankRisk(String bankRisk) {
-	BankRisk = bankRisk;
-}
-
-
-
-
-
-public String getRisktitle() {
-	return Risktitle;
-}
-
-
-
-
-
-public void setRisktitle(String risktitle) {
-	Risktitle = risktitle;
-}
-
-
-
-
-
-public String getRiskdescription() {
-	return Riskdescription;
-}
-
-
-
-
-
-public void setRiskdescription(String riskdescription) {
-	Riskdescription = riskdescription;
-}
-
-
-
-
-
-public String getSource() {
-	return Source;
-}
-
-
-
-
-
-public void setSource(String source) {
-	Source = source;
-}
-
-
-
-
-
-public String getFunction() {
-	return Function;
-}
-
-
-
-
-
-public void setFunction(String function) {
-	Function = function;
-}
-
-
-
-
-
-public String getIndustry() {
-	return Industry;
-}
-
-
-
-
-
-public void setIndustry(String industry) {
-	Industry = industry;
-}
-
-
-
-
-
-public String getSection() {
-	return Section;
-}
-
-
-
-
-
-public void setSection(String section) {
-	Section = section;
-}
-
-
-
-
-
-public String getBackground() {
-	return Background;
-}
-
-
-
-
-
-public void setBackground(String background) {
-	Background = background;
-}
-
-
-
-
-
-public String getRemarks() {
-	return Remarks;
-}
-
-
-
-
-
-public void setRemarks(String remarks) {
-	Remarks = remarks;
-}
-
-
-
-
-
-public String getNotes() {
-	return Notes;
-}
-
-
-
-
-
-public void setNotes(String notes) {
-	Notes = notes;
-}
-
-
-
-
-
-public String getStatus() {
-	return Status;
-}
-
-
-
-
-
-public void setStatus(String status) {
-	Status = status;
-}
-
-
-
-
-
-public List<BankVo> getBankList() {
-	return bankList;
-}
-
-
-
-
-
-public void setBankList(List<BankVo> bankList) {
-	this.bankList = bankList;
-}
 
 
 
@@ -346,9 +142,195 @@ public void preProcessPDF(Object document) throws IOException, BadElementExcepti
     pdf.open();
     pdf.setPageSize(PageSize.A4);
 
-    
+    //ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+    //String logo = externalContext.getRealPath("") + File.separator + "resources" + File.separator + "demo" + File.separator + "images" + File.separator + "prime_logo.png";
+     
     pdf.addTitle("Collabor8");
 }
+
+
+
+
+
+
+
+
+public int getId() {
+	return id;
+}
+
+
+
+
+
+public void setId(int id) {
+	this.id = id;
+}
+
+
+
+
+
+
+
+public String getOrganizationId() {
+	return organizationId;
+}
+
+
+
+
+
+public void setOrganizationId(String organizationId) {
+	this.organizationId = organizationId;
+}
+
+
+
+
+
+public String getParentorgId() {
+	return parentorgId;
+}
+
+
+
+
+
+public void setParentorgId(String parentorgId) {
+	this.parentorgId = parentorgId;
+}
+
+
+
+
+
+
+
+
+
+
+public String getOrganizationdescription() {
+	return organizationdescription;
+}
+
+
+
+
+
+public void setOrganizationdescription(String organizationdescription) {
+	this.organizationdescription = organizationdescription;
+}
+
+
+
+
+
+public String getShortname() {
+	return shortname;
+}
+
+
+
+
+
+public void setShortname(String shortname) {
+	this.shortname = shortname;
+}
+
+
+
+
+
+public String getWebsite() {
+	return website;
+}
+
+
+
+
+
+public void setWebsite(String website) {
+	this.website = website;
+}
+
+
+
+
+
+public String getTelephone() {
+	return telephone;
+}
+
+
+
+
+
+public void setTelephone(String telephone) {
+	this.telephone = telephone;
+}
+
+
+
+
+
+public String getFax() {
+	return fax;
+}
+
+
+
+
+
+public void setFax(String fax) {
+	this.fax = fax;
+}
+
+
+
+
+
+public String getOrganizationtype() {
+	return organizationtype;
+}
+
+
+
+
+
+public void setOrganizationtype(String organizationtype) {
+	this.organizationtype = organizationtype;
+}
+
+
+
+
+
+public List<BankVo> getBankList() {
+	return bankList;
+}
+
+
+
+
+
+public void setBankList(List<BankVo> bankList) {
+	this.bankList = bankList;
+}
+
+
+
+
+
+
+
+public void setBankVo(BankVo bankVo) {
+	this.bankVo = bankVo;
+}
+
+
+
+
 
 
 

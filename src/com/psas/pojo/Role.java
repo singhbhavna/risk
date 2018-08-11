@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+
 @Entity
 @Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = "rolename"))
 
@@ -22,6 +23,7 @@ public class Role implements java.io.Serializable{
 	private String rolename;
 	private Boolean status;
 	
+	private byte[] attachment;
 	
 	public Role(int id) {
 		this.id = id;
@@ -33,11 +35,12 @@ public class Role implements java.io.Serializable{
 
 
 	
-	public Role(int id, String rolename, Boolean status) {
+	public Role(int id, String rolename, Boolean status,byte[] attachment) {
 		super();
 		this.id = id;
 		this.rolename = rolename;
 		this.status = status;
+		this.attachment = attachment;
 	}
 
 	@Id
@@ -66,6 +69,15 @@ public class Role implements java.io.Serializable{
 
 	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+
+	@Column(name = "attachment",  length = 100)
+	public byte[] getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(byte[] attachment) {
+		this.attachment = attachment;
 	}
 	
 	

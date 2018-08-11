@@ -14,10 +14,20 @@
 <link rel="stylesheet" href="resource/mystyle/home.css"/>
 <link rel="stylesheet" href="resource/mystyle/createcategory.css"/>
 <link rel="stylesheet" href="resource/css/risk.css"/>
-  <link rel="stylesheet" href="resource/mystyle/button.css"/>
+<link rel="stylesheet" href="resource/mystyle/button.css"/>
 <script type="text/javascript" src="resource/js/bootstrap.js"/>
 <script type="text/javascript" src="resource/js/jquery.js"/>
 
+<script>
+
+function setRiskbankHiddenValue(new_value)
+{
+	alert("id value1 "+ new_value);
+	document.getElementById('riskbankForm:riskbankId').value = new_value;
+	
+}
+
+</script>
 
 <title>Risk Bank-Definition</title>
 
@@ -40,16 +50,21 @@
        <div class="ui-fluid" >
      <center><h2 style="color:purple" >Risk Bank-Definition</h2></center>
      <div class="container" >
-      <h:form class="form-horizontal" enctype="multipart/form-data">
+      <h:form class="form-horizontal" enctype="multipart/form-data" >
       <br></br> 
 
-      
+ 
+     
+     
+    
+   
      
     <div class="form-group row">
       <div class="control-label col-sm-3" >
       <h:outputLabel><span style="color:red; width:100px">* </span> Risk Title:</h:outputLabel>
- <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Risk is anything that can impact the objectives. Please enter a brief title." 
-></span></div>
+       <span style="margin-top:0px;"  data-toggle="tooltip" title="Risk is anything that can impact the objectives. Please enter a brief title."  class="pull-right glyphicon glyphicon-info-sign" >
+   </span>
+</div>
 
       <div class="col-sm-8">
      <h:inputText value="#{bank1bean.risktitle}" class="form-control"  > </h:inputText>
@@ -62,8 +77,9 @@
    
     <div class="form-group row">
     <div class="control-label col-sm-3">
-    <h:outputLabel  for="Description"   value=" Risk Description:&nbsp;" ><span   data-toggle="tooltip" title="Please describe the Description in more details." 
-    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <h:outputLabel  for="Description"   value=" Risk Description:&nbsp;" >
+     <span style="margin-top:0px;"  data-toggle="tooltip" title="Please describe the Description in more details."   class="pull-right glyphicon glyphicon-info-sign">
+  </span></h:outputLabel></div>
     <div class="col-sm-8">
     <h:inputTextarea value="#{bank1bean.riskdescription}" class="form-control" style="background:lightgrey;"></h:inputTextarea></div></div>
       
@@ -73,15 +89,22 @@
 
 <div class="col-sm-3 control-label"> 
 
- <h:outputLabel>Source:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="source" 
-></span>
+ <h:outputLabel>Source:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Source"  class="pull-right glyphicon glyphicon-info-sign" >
+  </span>
  </div>
  <div class=" col-sm-3">
       <p:selectOneMenu  value="#{bank1bean.source}"  style="  border: none; width:255px;">
             <f:selectItem itemLabel="Select" itemValue="" />
-             <f:selectItem itemLabel="Bank" itemValue="Bank" />
-             <f:selectItem itemLabel="Risk" itemValue="Risk" />
-             <f:selectItem itemLabel="Org" itemValue="Org" />
+             <f:selectItem itemLabel="Past Event" itemValue="Past Event" />
+             <f:selectItem itemLabel="Audit Finding" itemValue="Audit Finding" />
+             <f:selectItem itemLabel="Govt Regulation" itemValue="Govt Regulation" />
+             <f:selectItem itemLabel="Industry Standards" itemValue="Industry Standards" />
+             <f:selectItem itemLabel="Expert Judgement" itemValue="Expert Judgement" />
+             <f:selectItem itemLabel="Servey" itemValue="Servey" />
+             <f:selectItem itemLabel="Interviews" itemValue="Interviews" />
+             <f:selectItem itemLabel="Others" itemValue="Others" />
+             
+             
             </p:selectOneMenu>
 
 </div>
@@ -90,18 +113,29 @@
 
 
 <div class="col-sm-2 control-label">
-<h:outputLabel>Industry:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Industry" 
-></span>
+<h:outputLabel>Industry:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Industry"  class="pull-right glyphicon glyphicon-info-sign">
+   </span>
 </div>
  <div class=" col-sm-2">
  
 <p:selectOneMenu value="#{bank1bean.industry}"  style="  border: none; width:255px;">
             <f:selectItem itemLabel="Select" itemValue="" />
-             <f:selectItem itemLabel="Delhi" itemValue="Delhi" />
-              <f:selectItem itemLabel="Mumbai" itemValue="Mumbai" />
-               <f:selectItem itemLabel="Gurgoan" itemValue="Gurgoan" />
-         
-        </p:selectOneMenu>
+             <f:selectItem itemLabel="Banking" itemValue="Banking" />
+              <f:selectItem itemLabel="Aviation" itemValue="Aviation" />
+               <f:selectItem itemLabel="Government" itemValue="Govrnment" />
+               <f:selectItem itemLabel="Transport" itemValue="Transport" />
+               <f:selectItem itemLabel="Oil and Gass" itemValue="Oil and Gass" />
+               <f:selectItem itemLabel="Food" itemValue="Food" />
+               <f:selectItem itemLabel="Telecom" itemValue="Telecom" />
+               <f:selectItem itemLabel="FMCG" itemValue="FMCG" />
+               <f:selectItem itemLabel="Media" itemValue="Media" />
+               <f:selectItem itemLabel="Defance" itemValue="Defance" />
+               <f:selectItem itemLabel="Minerals and Mining" itemValue="Minerals and Mining" />
+               <f:selectItem itemLabel="Agriculture" itemValue="Agriculture" />
+               <f:selectItem itemLabel="Textile" itemValue="Textile" />
+               <f:selectItem itemLabel="construction" itemValue="construction" />
+               <f:selectItem itemLabel="Others" itemValue="Others" />
+                </p:selectOneMenu>
 
 </div></div>
 
@@ -110,8 +144,8 @@
 
 <div class="col-sm-3 control-label"> 
 
- <h:outputLabel>Function:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Function" 
-></span>
+ <h:outputLabel>Function:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Function"  class="pull-right glyphicon glyphicon-info-sign">
+</span>
  </div>
  <div class=" col-sm-3">
       <p:selectOneMenu  value="#{bank1bean.function}"  style="  border: none; width:255px;">
@@ -131,18 +165,12 @@
 
 </div>
 <div class="col-sm-2 control-label">
-<h:outputLabel>Section:</h:outputLabel><span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Section" 
-></span>
+<h:outputLabel>Section:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="Section"  class="pull-right glyphicon glyphicon-info-sign">
+   </span>
 </div>
  <div class=" col-sm-3">
- 
-<p:selectOneMenu  value="#{bank1bean.section}" style="  border: none; width:255px;">
-            <f:selectItem itemLabel="Select" itemValue="" />
-            <f:selectItem itemLabel="Chesses" itemValue="Chesses" />
-            <f:selectItem itemLabel="Cricket" itemValue="Cricket" />
-            <f:selectItem itemLabel="TT-Table" itemValue="TT-Table" />
-           
-        </p:selectOneMenu>
+ <h:inputText value="#{bank1bean.section}" class="form-control"> </h:inputText>
+
 </div>
 </div>
 
@@ -161,15 +189,15 @@
    
    <div class="form-group row">
     <div class="control-label col-sm-3">
-    <h:outputLabel  for="background"   value="Background:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Background , If Any." 
-    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <h:outputLabel  for="background"   value="Background:&nbsp;" ><span style="margin-top:0px;"  data-toggle="tooltip" title="Background"  class="pull-right glyphicon glyphicon-info-sign">
+   </span></h:outputLabel></div>
     <div class="col-sm-8">
     <h:inputTextarea value="#{bank1bean.background}" class="form-control" ></h:inputTextarea></div></div>
       
        <div class="form-group row">
     <div class="control-label col-sm-3">
-    <h:outputLabel  for="remarks"   value="Remarks:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Remarks , If Any." 
-    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <h:outputLabel  for="remarks"   value="Remarks:&nbsp;" ><span style="margin-top:0px;"  data-toggle="tooltip" title="Remarks"  class="pull-right glyphicon glyphicon-info-sign" >
+  </span></h:outputLabel></div>
     <div class="col-sm-8">
     <h:inputTextarea value="#{bank1bean.remarks}" class="form-control" ></h:inputTextarea></div></div>
       
@@ -177,13 +205,38 @@
 
        <div class="form-group row">
     <div class="control-label col-sm-3">
-    <h:outputLabel  for="notes"   value="Notes:&nbsp;" ><span   data-toggle="tooltip" title="Please enter Notes , If Any." 
-    style="margin-top:0px;" class=" glyphicon glyphicon-info-sign"></span></h:outputLabel></div>
+    <h:outputLabel  for="notes"   value="Notes:&nbsp;" ><span style="margin-top:0px;"  data-toggle="tooltip" title="Notes"  class="pull-right glyphicon glyphicon-info-sign ">
+  </span></h:outputLabel></div>
     <div class="col-sm-8">
     <h:inputTextarea value="#{bank1bean.notes}" class="form-control" ></h:inputTextarea></div></div>
       
      
-      
+   <div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+
+ <h:outputLabel>Status:</h:outputLabel><span style="margin-top:0px;"  data-toggle="tooltip" title="" class="pull-right glyphicon glyphicon-info-sign">
+  </span>
+ </div>
+ <div class=" col-sm-3">
+      <p:selectOneMenu  value="#{bank1bean.status}"  style="  border: none; width:255px;">
+           
+            <f:selectItem itemLabel="Active" itemValue="true" />
+             <f:selectItem itemLabel="In-Active" itemValue="false" />
+          
+        </p:selectOneMenu>
+
+</div>
+  
+ <div class="col-sm-2 control-label">
+      <h:outputLabel  for="email">Attach file:  
+      <span style="margin-top:0px;"  data-toggle="tooltip" title="Please share supporting information , if any" class="pull-right glyphicon glyphicon-info-sign">
+   </span></h:outputLabel></div>
+     
+  <p:fileUpload value="#{bank1bean.file}" mode="simple"/></div>
+  
+  
+  
   
 
 
@@ -191,11 +244,12 @@
 
 <div class=" row form-group ">
  <div class="col-sm-3 .col-sm-offset-3"></div>
-<div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Submit" style="text-decoration:none; color:#fff;" class="btn fontsize btn-success btn-block"></h:commandButton></div>
+ <div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Submit" style="text-decoration:none; color:#fff;" class="btn fontsize btn-success btn-block"></h:commandButton></div>
 <div class="col-sm-4"></div>
 <div class="col-sm-4"><h:commandButton action="#{bank1bean.submit()}" value="Back" style="text-decoration:none; color:#fff;" class="btn fontsize btn-primary btn-block"></h:commandButton></div>
 <div class="col-sm-4"></div>
 </div>
+
 
 
 
@@ -228,63 +282,83 @@
 
 </h:form>
 
-
-
-</div></div>
-
+</div>
 
 
 
 
-<h:form id="projectForm">
+
+
+<h:form id="riskbankForm">
 <p:growl id="messages" showDetail="true"  autoUpdate="true"/>
 
       <div  class="gridmargin">
  		
 <div class="ui-fluid">
 
-	     <p:dataTable id="risktable" var="Bank1bean" value="#{bank1bean.bankList}" 
+
+<h:inputHidden id="riskbankId" value="#{bank1bean.riskbankId}" ></h:inputHidden>
+
+	     <p:dataTable  id="risktable"   var="Bank1bean" value="#{bank1bean.bankList}" 
 	    scrollable="true" scrollHeight="250"
 	      class="table table-striped table-hover table-bordered" style="margin-top:20px" 
-	         rows="25" rowsPerPageTemplate="25,35,50" 	
-	     
-	    
-	     >
+	         rows="25" rowsPerPageTemplate="25,35,50">
+	
+	
 	
   <f:facet name="header">
 	    <div class="row" style="margin: -3px;">
-	 
-				
-      		<span style="font-size:22px;text-align:center;">Manage Risk Bank-Definition</span>
-      	  
-					<div  style="margin-right: -10px">
-			
-			<h:commandLink id="excel">
+	    <span style="font-size:22px;text-align:center;">Manage Risk Bank-Definition 
+	     
+		<strong>Export Data &nbsp;</strong>
+		
+		 
+	   
+		
+		<h:commandLink id="excel">
 	     <img  src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
-	        <p:dataExporter type="xls" target="risktable" fileName="Bank1bean" postProcessor="#{bank1bean.postProcessXLS}" />
+	          <p:dataExporter type="xls" target="risktable" fileName="Bank1bean" postProcessor="#{bank1bean.postProcessXLS}" />
 	    </h:commandLink>
-			
-			 <h:commandLink id="pdf" >
+		
+		
+		 <h:commandLink id="pdf" >
 	     <img  src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
-	        <p:dataExporter type="pdf" target="risktable" fileName="Bank1bean"  preProcessor="#{bank1bean.preProcessPDF}"  />
+	       <p:dataExporter type="pdf" target="risktable" fileName="Bank1bean" preProcessor="#{bank1bean.preProcessPDF}" />
 	    </h:commandLink>	
-			</div>	
+		
+	    
+	 	
+	</span>
+      	  
+						
 		
 			
 			</div>
 			
+		
 		</f:facet> 
-  
-			 
-	  <p:column headerText=" Risk Title"  filterBy="#{Bank1bean.risktitle}" sortBy="#{Bank1bean.risktitle}" filterMatchMode="contains">
+		
+ 
+
+
+  <p:column  headerText=" Bank Risk Id">
+  	            <h:outputText value="#{Bank1bean.riskbankId}" />
+	        </p:column>
+
+	  <p:column filterBy="#{Bank1bean.risktitle}" sortBy="#{Bank1bean.risktitle}" headerText=" Risk Title" filterStyle="display:true;" 
+	        filterMatchMode="contains">
 	        <f:facet name="header">
+	        
+	        
+	        
+	        
 					<h:outputText value="Risk Title" />
 				</f:facet>
 	        
 	            <h:outputText value="#{Bank1bean.risktitle}" />
 	        </p:column>
 	         
-	          <p:column headerText="Risk Description" >
+	          <p:column  headerText="Risk Description">
 	        <f:facet name="header">
 					<h:outputText value="Risk Description" />
 				</f:facet>
@@ -294,14 +368,66 @@
 	         
 	        
 	        
-	         <p:column headerText="Background"  filterBy="#{Bank1bean.background}" sortBy="#{Bank1bean.background}" filterMatchMode="contains">
+	        
+	        <p:column filterBy="#{Bank1bean.function}" sortBy="#{Bank1bean.function}" headerText="Function" filterStyle="display:true;" 
+	        filterMatchMode="contains">
+	        <f:facet name="header">
+					<h:outputText value="Function" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.function}" />
+	        </p:column>
+	         
+	         
+	         
+	         
+	         
+	         
+	         
+	          <p:column filterBy="#{Bank1bean.source}" sortBy="#{Bank1bean.source}" headerText="Source" filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+	        <f:facet name="header">
+					<h:outputText value="Source" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.source}" />
+	        </p:column>
+	         
+	         
+	         
+	         
+	         
+	       <p:column filterBy="#{Bank1bean.industry}" sortBy="#{Bank1bean.industry}" headerText="Industry" filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+	        <f:facet name="header">
+					<h:outputText value="Industry" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.industry}" />
+	        </p:column>
+	         
+	      
+	      
+	      
+	      
+	      
+	          <p:column filterBy="#{Bank1bean.section}" sortBy="#{Bank1bean.section}" headerText="Section" filterStyle="display:true;" 
+	        filterMatchMode="contains">
+	        <f:facet name="header">
+					<h:outputText value="Section" />
+				</f:facet>
+	        
+	            <h:outputText value="#{Bank1bean.section}" />
+	        </p:column>
+	         
+	          <p:column headerText="Background">
 	        <f:facet name="header">
 					<h:outputText value="Background" />
 				</f:facet>
 	        
 	            <h:outputText value="#{Bank1bean.background}" />
 	        </p:column>
-	         <p:column headerText="Remarks" >
+	         <p:column headerText="Remarks">
 	        <f:facet name="header">
 					<h:outputText value="Remarks" />
 				</f:facet>
@@ -315,63 +441,43 @@
 	        
 	            <h:outputText value="#{Bank1bean.notes}" />
 	        </p:column>
-	        <p:column headerText="Function"  filterBy="#{Bank1bean.function}" sortBy="#{Bank1bean.function}" filterMatchMode="contains" >
-	        <f:facet name="header">
-					<h:outputText value="Function" />
-				</f:facet>
-	        
-	            <h:outputText value="#{Bank1bean.function}" />
-	        </p:column>
 	         
 	         
 	         
 	         
 	         
-	       
 	         
-	          <p:column headerText="Source"  filterBy="#{Bank1bean.source}" sortBy="#{Bank1bean.source}" filterMatchMode="contains">
-	        <f:facet name="header">
-					<h:outputText value="Source" />
-				</f:facet>
-	        
-	            <h:outputText value="#{Bank1bean.source}" />
-	        </p:column>
 	         
-	           
-			<p:column filterBy="#{Bank1bean.industry}" sortBy="#{Bank1bean.industry}" headerText="Industry"  
-			 filterMatchMode="contains"   style="padding: 0px 0px 0px 3px;">
-	        <f:facet name="header">
-					<h:outputText value="Industry" /> 
-					</f:facet>
-	        
-	            <h:outputText value="#{Bank1bean.industry}" style="display: inline;"   />
-	        </p:column>
-	   
-	          <p:column headerText="Section">
-	        <f:facet name="header">
-					<h:outputText value="Section" />
-				</f:facet>
-	        
-	            <h:outputText value="#{Bank1bean.section}" />
-	        </p:column>
 	         
-	          <p:column headerText="Status">
+	         
+	         
+	          <p:column filterBy="#{Bank1bean.status}" sortBy="#{Bank1bean.status}" headerText="Status" filterStyle="display:true;" 
+	        filterMatchMode="contains">
 	        <f:facet name="header">
 					<h:outputText value="Status" />
 				</f:facet>
 	        
 	            <h:outputText value="#{Bank1bean.status}" />
 	        </p:column>
-	         
+	    
+
+
+  <p:column headerText="View / Modify" exportable="false" style="padding: 0px 0px 0px 0px; ">
+         <p:commandButton id="nonAjax" value="View / Update" 
+				style=" font-size:12px;padding: 3px 0px 4px 0px;"
+				 onclick='setRiskbankHiddenValue(#{Bank1bean.riskbankId})' 
+				action="#{bank1bean.modifyAction()}" ajax="false" >
+	        		
+	    	</p:commandButton> 
+	    		
+   </p:column>
 	        
 	        
-
-</p:dataTable></div>
-
-</div></h:form>
-
-
-
+	        
+	</p:dataTable>        
+</div>
+</div>
+</h:form>
 
 
 
@@ -385,12 +491,7 @@
 
 
 
-
+</div>
 
 </h:body>
 </html>
-
-
-
-
-

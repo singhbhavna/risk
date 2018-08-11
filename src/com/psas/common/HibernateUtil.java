@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import com.psas.pojo.Bank1;
+
 import com.psas.pojo.Role;
 import com.psas.pojo.Users;
 
@@ -28,7 +29,7 @@ public class HibernateUtil {
     	    configuration.setProperty("hibernate.show_sql", "true");
     	   configuration.setProperty("hibernate.default_schema", "reqman");
     	   configuration.setProperty("hibernate.hbm2ddl.auto", "update");
-    	    
+    	 
     	   configuration.addAnnotatedClass(Role.class);
     	   configuration.addAnnotatedClass(Bank1.class);
     	  configuration.addAnnotatedClass(Users.class);

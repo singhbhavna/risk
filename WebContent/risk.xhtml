@@ -1,45 +1,22 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui" 
-	   xmlns:ui="http://java.sun.com/jsf/facelets"
-	    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	   xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<link rel="stylesheet" href="resources/css/bootstrap.css"/>
-<link rel="stylesheet" href="resources/mystyle/home.css"/>
-<link rel="stylesheet" href="resources/mystyle/friendmaster.css"/>
-<link rel="stylesheet" href="resources/mystyle/createcategory.css"/>
+<html lang="en">
+<head>
+   
+    <title>Chunky 3D Web Buttons</title>
+    
+</head>
+<style>
 
-<script type="text/javascript" src="resources/js/bootstrap.js"/>
-<script type="text/javascript" src="resources/js/jquery.js"/>
-
-<script>
-
-function setRolemasterHiddenValue(new_value)
-{
-	alert("id value1 "+ new_value);
-	document.getElementById('rolemasterForm:id').value = new_value;
-	
-}
-
-</script>
-<title> Risk</title>
- <style type="text/css">
-        .ui-growl {
-            
-            top:60px;
-            Right:20px;
-            width:500px;
-            z-index:9999;
-        }
-        
+/**
+ * Chunky 3D Web Buttons
+ *
+ * Inspiration was taken from:
+ * - http://www.premiumpixels.com/freebies/chunky-3d-webbuttons-psd/
+ */
+ 
+/**
+ * Shadow
+ */
 a.button::before {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -721,124 +698,53 @@ a.button.yahoo:active {
     background: linear-gradient(#5f396a, #be95b7);
     border: solid 1px #4b2a55;
     box-shadow: inset 0 10px 15px 0 #4d2955; }
-    </style></h:head>
-<body>  
-<div id="header">
-	<ui:insert name="header">
-		<ui:include src="header.xhtml" />
-	</ui:insert>
-	
-</div>
 
- <div class="row">
-  
-  
-      <div class="col-sm-7  addteammember" >
+</style>
+<body>
 
-  <h:form class="form-horizontal">
-
-  <h2 style="  margin-bottom:30px; margin-top:0px; text-align:center" > Create New Role</h2>
-
-
-
- <div class=" row form-group ">
-<div class="col-sm-4 control-label"><h:outputLabel  >Role Name:</h:outputLabel></div>
-<div class=" col-sm-6"> <h:inputText value="#{rolebean.rolename}" maxlength="20" class="  form-control"  id="projectname"  required="true" requiredMessage="* Please Enter Project Name"/><span style="color:red;">Please enter upto 20 characters.</span></div>
-</div>
-<br></br>
- 
-<div class=" row form-group ">
- <div class="col-sm-4 .col-sm-offset-2"></div>
- <div class="col-sm-6 "><h:commandButton action="#{rolebean.submit}" value="Submit" class="btn fontsize btn-success btn-block"></h:commandButton></div>
-
-</div>
-</h:form>
-<h:form id="rolemasterForm">
-
-
-      <div  class="gridmargin">
- 		<h:inputHidden id="id" value="#{rolebean.id}" ></h:inputHidden>
-<div class="ui-fluid">
-
-	     <p:dataTable id="RoleTable" var="role" value="#{rolebean.masterList}" editable="true" editMode="cell" 
-	     reflow="true" scrollable="true" scrollHeight="250" 
-	      class="table table-striped table-hover table-bordered" style="margin-top:20px" 
-	          rows="25" rowsPerPageTemplate="25,35,50" 	 paginator="true" 
-	       paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
-	    
-	      >
-	      
- 
- 
- 
-  <f:facet name="header">
-	    <div class="row" style="margin: -3px;">
-	 
-				
-				<div class="col-sm-8">
-      		<span style=";font-size:22px;text-align:center;">Manage Role List</span>
-      	</div>  
-						
-		
-			
-			</div>
-		</f:facet> 
-		
-			  <p:column headerText="ID"   filterMatchMode="contains" style="padding: 0px 0px 0px 3px;">
-	        <f:facet name="header">
-					<h:outputText value="ID" />
-				</f:facet>
-	        
-	            <h:outputText value="#{role.id}" />
-	        </p:column>
-			
- 
-			  <p:column headerText="Role Name"   filterMatchMode="contains" style="padding: 0px 0px 0px 3px;">
-	        <f:facet name="header">
-					<h:outputText value="Role Name" />
-				</f:facet>
-	        
-	            <h:outputText value="#{role.rolename}" />
-	        </p:column>
-		
-	 
-	 
-	 
-
-
-
-
-
-      
-     
-  <p:column headerText="View / Modify" exportable="false" style="padding: 0px 0px 0px 0px; ">
-         <p:commandButton id="nonAjax" value="View / Update" 
-				style=" font-size:12px;padding: 3px 0px 4px 0px;"
-				 onclick='setRolemasterHiddenValue(#{role.id})' 
-				action="#{rolebean.modifyAction()}" ajax="false" >
-	        		
-	    	</p:commandButton> 
-	    		
-   </p:column>
-
-
-
-</p:dataTable></div>
-
-</div></h:form>
-</div>
-<div class="col-sm-5" style="background-color:#fff;margin-top:0px;">
-      
- 
-    <div>
-<img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqYJbKJZJmX9SXF6Cet4JIpwndBdWWy80irWyRnfKsLCJw4Cj0jw" class="img-responsive img-thumbnail" alt="collabor8" style="width:100%;height:500px;" ></img>
-
-</div>
-      
-        </div>
-</div>
-
+    <a href="#" class="button grey">Download</a>
+    
+    <a href="#" class="button pink">Download</a>
+    
+    <a href="#" class="button blue">Download</a>
+    
+    <a href="#" class="button green">Download</a>
+    
+    <a href="#" class="button teal">Download</a>
+    
+    <a href="#" class="button black">Download</a>
+    
+    <a href="#" class="button dark_grey">Download</a>
+    
+    <a href="#" class="button orange">Download</a>
+    
+    <a href="#" class="button purple">Download</a>
+    
+    <a href="#" class="button blue_alt">Download</a>
+    
+    <a href="#" class="button forrst">Download</a>
+    
+    <a href="#" class="button dribbble">Download</a>
+    
+    <a href="#" class="button twitter">Download</a>
+    
+    <a href="#" class="button facebook">Download</a>
+    
+    <a href="#" class="button crisp">Download</a>
+    
+    <a href="#" class="button lovedsgn">Download</a>
+    
+    <a href="#" class="button xbox">Download</a>
+    
+    <a href="#" class="button devart">Download</a>
+    
+    <a href="#" class="button dsgnmoo">Download</a>
+    
+    <a href="#" class="button rss">Download</a>
+    
+    <a href="#" class="button yahoo">Download</a>
+    
+    <a href="http://www.premiumpixels.com/freebies/chunky-3d-webbuttons-psd/" class="button" target="_blank">Chunky 3D Web Buttons (PSD)</a>
+    
 </body>
-
- 
 </html>
